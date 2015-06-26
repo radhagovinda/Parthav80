@@ -53,6 +53,12 @@
 
 <tr>
 <td>
+	{BEGIN IsDeleted_fieldblock}
+<div data-fieldname="IsDeleted" class="rnr-field style1 {$fielddispclass_IsDeleted}">
+  <div class="rnr-label above">{BEGIN IsDeleted_label}{$label student IsDeleted}{END IsDeleted_label}</div>
+  <div class="rnr-control style3">{$IsDeleted_editcontrol}</div>
+</div>
+{END IsDeleted_fieldblock}
 	{BEGIN FirstName_fieldblock}
 <div data-fieldname="FirstName" class="rnr-field style1 {$fielddispclass_FirstName}">
   <div class="rnr-label above">{BEGIN FirstName_label}{$label student FirstName}{END FirstName_label}</div>
@@ -89,14 +95,14 @@
   <div class="rnr-control style3">{$Class_editcontrol}</div>
 </div>
 {END Class_fieldblock}
+</td>
+<td>
 	{BEGIN AcadamicYear_fieldblock}
 <div data-fieldname="AcadamicYear" class="rnr-field style1 {$fielddispclass_AcadamicYear}">
   <div class="rnr-label above">{BEGIN AcadamicYear_label}{$label student AcadamicYear}{END AcadamicYear_label}</div>
   <div class="rnr-control style3">{$AcadamicYear_editcontrol}</div>
 </div>
 {END AcadamicYear_fieldblock}
-</td>
-<td>
 	{BEGIN Email_fieldblock}
 <div data-fieldname="Email" class="rnr-field style1 {$fielddispclass_Email}">
   <div class="rnr-label above">{BEGIN Email_label}{$label student Email}{END Email_label}</div>

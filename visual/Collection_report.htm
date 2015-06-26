@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <HTML {$html_attrs}><HEAD> 
+
 <META http-equiv="X-UA-Compatible" content="IE=Edge"> <TITLE>{$pagetitle}</TITLE> 
 <META http-equiv="Content-Type" content="text/html; charset=utf-8"> 
 <LINK href="styles/default.css" rel="stylesheet" type="text/css"> {BEGIN rtlCSS}<LINK href="styles/defaultRTL.css" rel="stylesheet" type="text/css">{END rtlCSS} {BEGIN styleCSSFiles}<LINK href="{$stylepath}" rel="stylesheet" type="text/css">{END styleCSSFiles} {BEGIN pageCSSFiles}<LINK href="{$pagestylepath}" rel="stylesheet" type="text/css">{END pageCSSFiles} 
-<META name="GENERATOR" content="MSHTML 11.00.10011.11"></HEAD> 
+<META name="GENERATOR" content="MSHTML 11.00.9600.17842"></HEAD> 
 <BODY class="{$stylename} function-report" {$bodyattrs}>{BEGIN body}
 {$header} 
 <DIV class="rnr-page">
@@ -12,7 +13,7 @@
 <DIV class="rnr-c rnr-ch rnr-c-toplinks">
 <DIV class="rnr-hfiller"></DIV>
 {BEGIN security_block}<DIV class="style1 rnr-br rnr-b-loggedas {$brickclass_loggedas}">
-<DIV id="login_block{$id}">{BEGIN loggedas_message}<SPAN>Logged on  
+<DIV id="login_block{$id}">{BEGIN loggedas_message}<SPAN>Logged on 
  as&nbsp;<B> 
 {$username}</B>&nbsp;</SPAN> {END loggedas_message}{BEGIN guestloginbutton}<SPAN><A class="rnr-button" href="#" {$guestloginlink_attrs}>Login</A> 
 </SPAN> {END guestloginbutton}{BEGIN logoutbutton}<A class="rnr-button" href="#" {$logoutlink_attrs}>Log out</A> {END logoutbutton}{BEGIN adminarea_link}<A class="rnr-button" href="admin_rights_list.php" {$adminarealink_attrs}>Admin 
@@ -20,21 +21,20 @@
 {BEGIN container_hmenu}
 <DIV class="rnr-c rnr-ch rnr-c-hmenu">
 {BEGIN searchform_block}<DIV class="style1 rnr-bl rnr-b-search {$brickclass_search}"><SPAN>{BEGIN searchform_text}<INPUT type="text" size="25" {$searchfor_attrs}>{END searchform_text} 
-{BEGIN searchform_search}<A class="rnr-button img" href="#" data-icon="search" {$searchbutton_attrs}></A>	{END searchform_search}{BEGIN searchform_showall}<A class="rnr-button" href="#" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</A> {END searchform_showall}</SPAN> </DIV>
+{BEGIN searchform_search}<A class="rnr-button img" href="#" data-icon="search" {$searchbutton_attrs}></A> {END searchform_search}{BEGIN searchform_showall}<A class="rnr-button" href="#" {$showAllCont_attrs} {$showallbutton_attrs}>Show all</A> {END searchform_showall}</SPAN> </DIV>
 {END searchform_block}{BEGIN searchformbuttons_block}<DIV class="style1 rnr-bl rnr-b-search_buttons {$brickclass_search_buttons}">{BEGIN searchPanelTopButtons}<SPAN><A class="rnr-button img" id="showSrchWin{$id}" href="#" data-icon="panelfloat" {$showHideSearchWin_attrs}></A> <A class="rnr-button img" id="showOptPanel{$id}" href="#" data-icon="paneldown" {$showHideSearchPanel_attrs}></A> </SPAN> {END searchPanelTopButtons}</DIV>
 {END searchformbuttons_block}{BEGIN searchsaving_block}<DIV class="style1 rnr-bl rnr-b-search_saving_buttons {$brickclass_search_saving_buttons}"></DIV>
 {END searchsaving_block}<DIV class="rnr-hfiller"></DIV>
-{BEGIN details_block}<DIV class="style1 rnr-br rnr-b-details_found {$brickclass_details_found}"><SPAN {$details_attrs}>	Details found: <B><SPAN class="rnr-details_found_count">
-{$records_found}</SPAN></B> 
-</SPAN> </DIV>{END details_block}</DIV>{END container_hmenu}</DIV>
+{BEGIN details_block}<DIV class="style1 rnr-br rnr-b-details_found {$brickclass_details_found}"><SPAN {$details_attrs}>	Groups found: 
+<B><SPAN class="rnr-details_found_count">
+{$records_found}</SPAN></B> </SPAN> </DIV>{END details_block}</DIV>{END container_hmenu}</DIV>
 <DIV class="rnr-middle">
 <DIV class="rnr-left {$blockclass_left}">
 {BEGIN container_left}
 <DIV class="rnr-c rnr-cv rnr-c-left">
 {BEGIN menu_block}{$menu main}{END menu_block}{BEGIN searchPanel}<DIV class="rnr-brickcontents style1 rnr-b-searchpanel {$brickclass_searchpanel}">
 <DIV class="searchPanelContainer">
-<DIV class="searchOptions bottomPanelBorder" {$srchOpt_attrs}><!-- Search panel content --> 
-
+<DIV class="searchOptions bottomPanelBorder" {$srchOpt_attrs}>
 <TABLE class="controlsBlock {$controls_block_class}">
   {BEGIN searchCtrlBlock_PaymentDate}<TBODY>
   <TR class="srchPanelRow {$filterRow_class_PaymentDate}" {$filterRow_attrs_PaymentDate}>
@@ -62,38 +62,77 @@
 <STYLE>
 	td.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary {background-color:#ffffbb;}
 	td.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary {background-color:#ffe0b0;}
+	.rnr-report {width: 100%;}
+	td {padding: 2px; 4px;}
+
+		td.group_1{background-color: #90EE90;}
+		td.nbgroup_1{background-color: #90EE90;}
+		td.header_1 {
+			background-color: #7ACA7A; 
+			font-size:120%;
+			padding: 2px 8px;
+			font-weight: bold;
+		}
+	td.blackshade {
+		font-size:140%;
+		padding: 4px 8px;
+	}
+	.summaryrow > * {
+		border:solid #808080 1px; 
+		border-left: none; 
+		border-right: none;
+	}
+	.grouptotalsrow + :not(.grouptotalsrow) > * {
+		border-top:solid #808080 1px; 
+	}
 
 </STYLE>
  
-{BEGIN grid_block}<TABLE class="rnr-c rnr-b-report report" cellpadding="0">
-  <THEAD></THEAD>
+<DIV class="rnr-cw-grid rnr-s-2 asbuttons {$pageStyleName}">
+<DIV class="rnr-c rnr-cv rnr-c-grid">
+<DIV class="rnr-brickcontents style1 rnr-b-report">
+<TABLE class="rnr-report" border="0" cellspacing="0" cellpadding="0">
   <TBODY>
-  <TR class="rnr-toprow summary-header style1">
-    <TD rowspan="1" colspan="1"></TD>
-    <TD rowspan="1" colspan="1"></TD>
-    <TD rowspan="1" colspan="1"></TD>
-    <TD rowspan="1" colspan="1"></TD>
-    <TD rowspan="1" colspan="1"></TD>
-    <TD rowspan="1" colspan="1"></TD>
-    <TD class="rnr-edge" rowspan="1" colspan="1"></TD></TR><!--------------------------------------global summary--------------------------------------------> 
-
-  <TR class="rnr-row summary-global style1">
-    <TD class="globalsummary rnr-edge" rowspan="1" colspan="6">Total       
-      records&nbsp; 
-      {$global_total_cnt} </TD></TR><!--  Sum --> 
-  <TR class="rnr-row style1">
-    <TD class="globalsummary 0" rowspan="1" colspan="1">Total collection       
-      amount&nbsp;			&nbsp; </TD>
-    <TD class="globalsummary 0" rowspan="1" colspan="1">	&nbsp;</TD>
-    <TD class="globalsummary 0" rowspan="1" colspan="1">
-      {$global_totalFees_sum} </TD>
-    <TD class="globalsummary 0" rowspan="1" colspan="1">	&nbsp;</TD>
-    <TD class="globalsummary 0" rowspan="1" colspan="1">	&nbsp;</TD>
-    <TD class="globalsummary rnr-edge" rowspan="1" 
-  colspan="1">	&nbsp;</TD></TR></TBODY></TABLE>{END grid_block}{END container_grid}
+  {BEGIN grid_row}{BEGIN Name_newgroup}<TR class="group-headers">
+    <TD class="blackshade"></TD>
+    <TD class="blackshade"></TD>
+    <TD class="blackshade"></TD>
+    <TD class="blackshade"></TD>
+    <TD class="blackshade"></TD>
+    <TD class="blackshade"> </TD></TR>
+  <TR class="group-spliter-1" {$rowattrs}>
+    <TD class="header_1" colspan="6"><FONT>
+      {$Name_grval} 
+      </FONT> </TD></TR>
+  {END Name_newgroup}{BEGIN Name_endgroup}<TR class="summaryrow">
+    <TD class="group_1" colspan="6">	Summary for&nbsp; 
+      {$Name_grval}	- <SPAN class="summary-1" data-value="{$groupName_total_cnt}" 
+      data-type="summary">
+      {$groupName_total_cnt}</SPAN> records     total</TD></TR>
+  <TR class="grouptotalsrow">
+    <TD class="group_1">Sum</TD>
+    <TD class="group_1">&nbsp;</TD>
+    <TD class="group_1"><SPAN class="summary-1" data-value="{$groupName_totalFees_sum}" 
+      data-type="sum" data-field="Fees">
+      {$groupName_totalFees_sum}</SPAN></TD>
+    <TD class="group_1">&nbsp;</TD>
+    <TD class="group_1">&nbsp;</TD>
+    <TD class="group_1">&nbsp;</TD></TR>
+  {END Name_endgroup}{END grid_row}<TR class="summaryrow summary-global">
+    <TD class="globalsummary" colspan="6">Global summary 
+      {$global_total_cnt} - records total</TD></TR>
+  <TR class="summary-global">
+    <TD class="globalsummary">Sum</TD>
+    <TD class="globalsummary">&nbsp;</TD>
+    <TD class="globalsummary">
+      {$global_totalFees_sum}</TD>
+    <TD class="globalsummary">&nbsp;</TD>
+    <TD class="globalsummary">&nbsp;</TD>
+    <TD class="globalsummary">&nbsp;</TD></TR></TBODY></TABLE> 
+</DIV></DIV></DIV>{END container_grid}
 {BEGIN container_pagination_bottom}
 <DIV class="rnr-c rnr-ch rnr-c-pagination_bottom">
 {BEGIN pagination_block}<DIV class="style1 rnr-bc rnr-b-pagination {$brickclass_pagination}"></DIV>{END pagination_block}</DIV>{END container_pagination_bottom}</DIV>
 <DIV class="rnr-right {$blockclass_right}"></DIV></DIV>
-<DIV class="rnr-bottom {$blockclass_bottom}"><!--%%bottom%%--> </DIV></DIV>
+<DIV class="rnr-bottom {$blockclass_bottom}"></DIV></DIV>
 {$footer}{END body} </BODY></HTML>

@@ -16,7 +16,7 @@
     {BEGIN pageCSSFiles}
       <LINK href="{$pagestylepath}" rel="stylesheet" type="text/css">
     {END pageCSSFiles}
-    <META name="GENERATOR" content="MSHTML 11.00.10011.11">
+    <META name="GENERATOR" content="MSHTML 11.00.9600.17842">
   </HEAD>
   <BODY class="{$stylename} function-list" {$bodyattrs}>
     {BEGIN body}
@@ -419,7 +419,19 @@
                             </TD>
                           {END Status_fieldcolumn}
                           <TD class="rnr-edge" {$recordattrs}>
-                            &nbsp;
+                            &nbsp;{BEGIN course_fee_dtable_link}
+                                <SPAN>
+                                  <A {$course_fee_dtablelink_attrs}>
+                                    Course Fee
+                                    <SPAN dir="ltr" {$course_fee_childnumber_attr}>
+                                      {BEGIN course_fee_childcount}
+                                        ({$course_fee_childnumber})
+                                      {END course_fee_childcount}
+                                    </SPAN>
+                                  </A>
+                                  &nbsp; 
+                                </SPAN>
+                              {END course_fee_dtable_link}
                           </TD>
                           {BEGIN endrecord_block}
                             <TD class="rnr-cs" {$endrecordblock_attrs}>

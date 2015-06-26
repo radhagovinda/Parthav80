@@ -44,25 +44,26 @@
 <div class="rnr-c rnr-ch rnr-c-toplinks">
 <div class="rnr-hfiller"></div>
 {BEGIN security_block}
-<div  class="style1 rnr-br rnr-b-loggedas {$brickclass_loggedas}">{BEGIN loggedas_message} 
-<span>Logged on as&nbsp;<b>{$username}</b>&nbsp;</span> 
-{END loggedas_message}
-{BEGIN guestloginbutton}
-<span>
-<a href="#" class="rnr-button" {$guestloginlink_attrs}>Login</a>
-</span>
-{END guestloginbutton}
-{BEGIN logoutbutton}
-<a href="#" class="rnr-button" {$logoutlink_attrs}>Log out</a>
-{END logoutbutton}
-{BEGIN adminarea_link}
+<div  class="style1 rnr-br rnr-b-loggedas {$brickclass_loggedas}"><div id="login_block{$id}">
+	{BEGIN loggedas_message} 
+	<span>Logged on as&nbsp;<b>{$username}</b>&nbsp;</span> 
+	{END loggedas_message}
+	{BEGIN guestloginbutton}
+	<span>
+		<a href="#" class="rnr-button" {$guestloginlink_attrs}>Login</a>
+	</span>
+	{END guestloginbutton}
+	{BEGIN logoutbutton}
+	<a href="#" class="rnr-button" {$logoutlink_attrs}>Log out</a>
+	{END logoutbutton}
+	{BEGIN adminarea_link}
 	<a href="admin_rights_list.php" class="rnr-button" {$adminarealink_attrs}>Admin Area</a>
-{END adminarea_link}
+	{END adminarea_link}
 
-{BEGIN changepwd_link}
+	{BEGIN changepwd_link}
 	<a href="#" class="rnr-button" {$changepwdlink_attrs}>Change password</a>
-{END changepwd_link}
-</div>
+	{END changepwd_link}
+</div></div>
 {END security_block}
 
 
@@ -131,9 +132,9 @@
 	<!-- Search panel content -->
 	<div class="srchCritTop" style="display: none;">
 		Criteria:&nbsp;
-		<input type="radio" name="srchType" class="rnr-radio-button" {$all_checkbox}>&nbsp;{BEGIN all_checkbox_label}<span>all</span>{END all_checkbox_label}
+		<input type="radio" name="srchType{$id}" class="rnr-radio-button" {$all_checkbox}>&nbsp;{BEGIN all_checkbox_label}<span>all</span>{END all_checkbox_label}
 		&nbsp;&nbsp;&nbsp;
-		<input type="radio" name="srchType" class="rnr-radio-button" {$any_checkbox}>&nbsp;{BEGIN any_checkbox_label}<span>any</span>{END any_checkbox_label}
+		<input type="radio" name="srchType{$id}" class="rnr-radio-button" {$any_checkbox}>&nbsp;{BEGIN any_checkbox_label}<span>any</span>{END any_checkbox_label}
 	</div>
 	
 	<div class="addOption">
@@ -204,9 +205,24 @@
 </li>
 	{END editselected_link}
 
-	
-	
-	</ul>
+		{BEGIN deleteselected_link}
+<li>
+		<a href="#" class="rnr-button link" {$deleteselectedlink_attrs} {$deleteselectedlink_span}>Delete</a>
+</li>
+	{END deleteselected_link}
+
+		{BEGIN exportselected_link}
+<li>
+		<a href="#" class="rnr-button link" {$exportselectedlink_attrs} {$exportselectedlink_span}>Export</a>
+</li>
+	{END exportselected_link}
+
+		{BEGIN printselected_link}
+<li>
+		<a href="#" class="rnr-button link" {$printselectedlink_attrs} {$printselectedlink_span}>Print</a>
+</li>
+	{END printselected_link}
+</ul>
 </span>
 {END widhtSelected}
 		{BEGIN saveall_link}
@@ -224,6 +240,16 @@
 {BEGIN moreButtons}
 <a class="rnr-button" id="extraButtonsToggler{$id}" href="#">More...</a>
 <ul class="rnr-list rnr-buttons-group" id="extraButtonsGroup{$id}">
+{BEGIN print_link}
+<li>
+	<a target="_blank" href="student_course_print.php?{$crosstable_attrs}" class="rnr-button link" {$printlink_attrs}>Print this page</a>
+</li>
+{END print_link}
+{BEGIN printall_link}
+<li>
+	<a target="_blank" href="student_course_print.php?all=1&amp;{$crosstable_attrs}" class="rnr-button link" {$printalllink_attrs}>Print all pages</a>
+</li>
+{END printall_link}
 
 {BEGIN asearch_link}
 <li>
@@ -231,7 +257,17 @@
 </li>
 {END asearch_link}
 
+{BEGIN export_link}
+<li>
+	<a target="_blank" href="student_course_export.php" class="rnr-button link" {$exportlink_attrs}>Export results</a>
+</li>
+{END export_link}
 
+{BEGIN import_link}
+<li>
+	<a href="student_course_import.php?{$crosstable_attrs}" class="rnr-button link" {$importlink_attrs}>Import</a>
+</li>
+{END import_link}
 </ul>
 {END moreButtons}
 </span></div>
@@ -313,7 +349,27 @@
 									</th>
 									{END checkbox_column}
 
-																																			{BEGIN StudentID_fieldheadercolumn}
+																																			{BEGIN Course_fieldheadercolumn}
+									<th class="rnr-gridfieldlabel {$Course_class}">
+									{BEGIN Course_fieldheader}
+																				<span {$Course_orderlinkattrs}>
+											{$label student_course Course}
+										</span>
+									{END Course_fieldheader}
+									</th>
+									{END Course_fieldheadercolumn}
+
+																	{BEGIN Batch_fieldheadercolumn}
+									<th class="rnr-gridfieldlabel {$Batch_class}">
+									{BEGIN Batch_fieldheader}
+																				<span {$Batch_orderlinkattrs}>
+											{$label student_course Batch}
+										</span>
+									{END Batch_fieldheader}
+									</th>
+									{END Batch_fieldheadercolumn}
+
+																	{BEGIN StudentID_fieldheadercolumn}
 									<th class="rnr-gridfieldlabel {$StudentID_class}">
 									{BEGIN StudentID_fieldheader}
 																				<span {$StudentID_orderlinkattrs}>
@@ -423,7 +479,19 @@
 									{END checkbox_column}
 
 
-										{BEGIN StudentID_fieldcolumn}
+										{BEGIN Course_fieldcolumn}
+	<td class="{$Course_class}" {$Course_style} {$recordattrs}>
+		{$Course_value}
+	</td>
+{END Course_fieldcolumn}
+
+	{BEGIN Batch_fieldcolumn}
+	<td class="{$Batch_class}" {$Batch_style} {$recordattrs}>
+		{$Batch_value}
+	</td>
+{END Batch_fieldcolumn}
+
+	{BEGIN StudentID_fieldcolumn}
 	<td class="{$StudentID_class}" {$StudentID_style} {$recordattrs}>
 		{$StudentID_value}
 	</td>

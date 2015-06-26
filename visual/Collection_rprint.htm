@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<HTML {$html_attrs}><HEAD> 
+<META http-equiv="X-UA-Compatible" content="IE=Edge"> <TITLE>{$pagetitle}</TITLE> 
+<META http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<LINK href="styles/default.css" rel="stylesheet" type="text/css"> {BEGIN rtlCSS}<LINK href="styles/defaultRTL.css" rel="stylesheet" type="text/css">{END rtlCSS} {BEGIN styleCSSFiles}<LINK href="{$stylepath}" rel="stylesheet" type="text/css">{END styleCSSFiles} {BEGIN pageCSSFiles}<LINK href="{$pagestylepath}" rel="stylesheet" type="text/css">{END pageCSSFiles} 
+<META name="GENERATOR" content="MSHTML 11.00.9600.17842"></HEAD> 
+<BODY class="{$stylename} function-rprint" {$bodyattrs}>{BEGIN body}
+{$header} 
+<DIV class="rnr-page">
+<DIV class="rnr-top {$blockclass_top}">
+{BEGIN container_pdf}
+<DIV class="rnr-c rnr-ch rnr-c-pdf">
+{BEGIN printbuttons}<DIV class="style1 rnr-bl rnr-b-printbuttons {$brickclass_printbuttons}"></DIV>
+{END printbuttons}<DIV class="rnr-hfiller"></DIV></DIV>{END container_pdf}
+{BEGIN container_grid}
+<STYLE>
+	td.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary {background-color:#ffffbb;}
+	td.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary {background-color:#ffe0b0;}
+	.rnr-report {width: 100%;}
+	td {padding: 2px; 4px;}
+
+		td.group_1{background-color: #90EE90;}
+		td.nbgroup_1{background-color: #90EE90;}
+		td.header_1 {
+			background-color: #7ACA7A; 
+			font-size:120%;
+			padding: 2px 8px;
+			font-weight: bold;
+		}
+	td.blackshade {
+		font-size:140%;
+		padding: 4px 8px;
+	}
+	.summaryrow > * {
+		border:solid #808080 1px; 
+		border-left: none; 
+		border-right: none;
+	}
+	.grouptotalsrow + :not(.grouptotalsrow) > * {
+		border-top:solid #808080 1px; 
+	}
+
+</STYLE>
+ 
+{BEGIN pages}<DIV class="rp-repeat">
+<H1>Collection</H1></DIV>
+<DIV class="rnr-report-gridblock" id="grid_block{$id}">
+<DIV class="rnr-cw-grid rnr-s-empty asbuttons {$pageStyleName}">
+<DIV class="rnr-c rnr-cv rnr-c-grid">
+<DIV class="rnr-brickcontents style1 rnr-b-report">
+<TABLE class="rnr-report" border="0" cellspacing="0" cellpadding="0"><!-------------------------------------  group headers ----------------------------------------->	
+  <TBODY>
+  {BEGIN grid_row}{BEGIN Name_newgroup}<TR class="group-headers">
+    <TD class="blackshade"></TD>
+    <TD class="blackshade"></TD>
+    <TD class="blackshade"></TD>
+    <TD class="blackshade"></TD>
+    <TD class="blackshade"></TD>
+    <TD class="blackshade"></TD></TR>
+  <TR class="group-spliter-1" {$rowattrs}>
+    <TD class="header_1" colspan="6"><FONT>
+      {$Name_grval} 
+      </FONT> </TD></TR><!-------------------------------------  group summary -----------------------------------------> 
+  {END Name_newgroup}{BEGIN Name_endgroup}<TR class="summaryrow">
+    <TD class="group_1" colspan="6">	Summary for&nbsp; 
+      {$Name_grval}			- <SPAN class="summary-1" 
+      data-value="{$groupName_total_cnt}" data-type="summary">
+      {$groupName_total_cnt}</SPAN> records 
+    total</TD> </TR><!--  Sum --> 
+  <TR class="grouptotalsrow">
+    <TD class="group_1">Sum</TD>
+    <TD class="group_1">&nbsp;</TD>
+    <TD class="group_1"><SPAN class="summary-1" data-value="{$groupName_totalFees_sum}" 
+      data-type="sum" data-field="Fees">
+      {$groupName_totalFees_sum}</SPAN></TD>
+    <TD class="group_1">&nbsp;</TD>
+    <TD class="group_1">&nbsp;</TD>
+    <TD class="group_1">&nbsp;</TD></TR><!--------------------------------------global summary--------------------------------------------> 
+  {END Name_endgroup}{END grid_row}<TR class="summaryrow summary-global">
+    <TD class="globalsummary" colspan="6">Global summary 
+      {$global_total_cnt} - records total</TD></TR><!--  Sum --> 
+  <TR class="summary-global">
+    <TD class="globalsummary">Sum</TD>
+    <TD class="globalsummary">&nbsp;</TD>
+    <TD class="globalsummary">
+      {$global_totalFees_sum}</TD>
+    <TD class="globalsummary">&nbsp;</TD>
+    <TD class="globalsummary">&nbsp;</TD>
+    <TD class="globalsummary">&nbsp;</TD></TR></TBODY></TABLE> 
+</DIV></DIV></DIV></DIV>{END pages}{END container_grid}</DIV>
+<DIV class="rnr-middle">
+<DIV class="rnr-left {$blockclass_left}"></DIV>
+<DIV class="rnr-center {$blockclass_center}"></DIV>
+<DIV class="rnr-right {$blockclass_right}"></DIV></DIV>
+<DIV class="rnr-bottom {$blockclass_bottom}"><!--%%bottom%%--> </DIV></DIV>
+{$footer}{END body} </BODY></HTML>

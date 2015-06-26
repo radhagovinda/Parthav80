@@ -188,12 +188,7 @@
 <ul class="rnr-list" id="selectButtonsGroup{$id}">
 
 	
-		{BEGIN deleteselected_link}
-<li>
-		<a href="#" class="rnr-button link" {$deleteselectedlink_attrs} {$deleteselectedlink_span}>Delete</a>
-</li>
-	{END deleteselected_link}
-
+	
 		{BEGIN exportselected_link}
 <li>
 		<a href="#" class="rnr-button link" {$exportselectedlink_attrs} {$exportselectedlink_span}>Export</a>
@@ -349,6 +344,16 @@
 									</th>
 									{END MobileNumber_fieldheadercolumn}
 
+																	{BEGIN GuardianMobile_fieldheadercolumn}
+									<th class="rnr-gridfieldlabel {$GuardianMobile_class}">
+									{BEGIN GuardianMobile_fieldheader}
+																				<span {$GuardianMobile_orderlinkattrs}>
+											{$label student GuardianMobile}
+										</span>
+									{END GuardianMobile_fieldheader}
+									</th>
+									{END GuardianMobile_fieldheadercolumn}
+
 																	{BEGIN Status_fieldheadercolumn}
 									<th class="rnr-gridfieldlabel {$Status_class}">
 									{BEGIN Status_fieldheader}
@@ -411,7 +416,7 @@
 										Student Course
 																				<span {$student_course_childnumber_attr} dir="ltr">{BEGIN student_course_childcount}({$student_course_childnumber}){END student_course_childcount}</span>
 									</a>
-																		&nbsp;
+																		<br/>
 									</span>
 									{END student_course_dtable_link}
 																											{BEGIN student_course_payment_schedule_dtable_link}
@@ -420,7 +425,7 @@
 										Student Course Payment Schedule
 																				<span {$student_course_payment_schedule_childnumber_attr} dir="ltr">{BEGIN student_course_payment_schedule_childcount}({$student_course_payment_schedule_childnumber}){END student_course_payment_schedule_childcount}</span>
 									</a>
-																		&nbsp;
+																		<br/>
 									</span>
 									{END student_course_payment_schedule_dtable_link}
 																											{BEGIN payment_receipt_dtable_link}
@@ -429,7 +434,7 @@
 										Payment Receipt
 																				<span {$payment_receipt_childnumber_attr} dir="ltr">{BEGIN payment_receipt_childcount}({$payment_receipt_childnumber}){END payment_receipt_childcount}</span>
 									</a>
-																		&nbsp;
+																		<br/>
 									</span>
 									{END payment_receipt_dtable_link}
 																		</td>
@@ -458,6 +463,12 @@
 		{$MobileNumber_value}
 	</td>
 {END MobileNumber_fieldcolumn}
+
+	{BEGIN GuardianMobile_fieldcolumn}
+	<td class="{$GuardianMobile_class}" {$GuardianMobile_style} {$recordattrs}>
+		{$GuardianMobile_value}
+	</td>
+{END GuardianMobile_fieldcolumn}
 
 	{BEGIN Status_fieldcolumn}
 	<td class="{$Status_class}" {$Status_style} {$recordattrs}>

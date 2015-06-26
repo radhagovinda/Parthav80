@@ -41,7 +41,7 @@
 <div class="rnr-c rnr-cv rnr-c-fields">
 
 {BEGIN viewheader}
-<div  class="rnr-brickcontents style2 rnr-b-viewheader {$brickclass_viewheader}"><span>	{$pagetitlelabel student view}
+<div  class="rnr-brickcontents style2 rnr-b-viewheader {$brickclass_viewheader}"><span>	<h1>{$pagetitlelabel student view}</h1>
 </span></div>{END viewheader}
 
 
@@ -50,6 +50,12 @@
 
 <tr>
 <td>
+	{BEGIN SchoolArea_fieldblock}
+<div data-fieldname="SchoolArea" class="rnr-field style1 {$fielddispclass_SchoolArea}">
+  <span class="rnr-label">{$label student SchoolArea}:</span>
+  <span class="rnr-control style3">{$SchoolArea_value}</span>
+</div>
+{END SchoolArea_fieldblock}
 	{BEGIN FirstName_fieldblock}
 <div data-fieldname="FirstName" class="rnr-field style1 {$fielddispclass_FirstName}">
   <span class="rnr-label">{$label student FirstName}:</span>

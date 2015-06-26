@@ -96,7 +96,7 @@
 <div class="rnr-hfiller"></div>
 {BEGIN details_block}
 <div  class="style1 rnr-br rnr-b-details_found {$brickclass_details_found}">	<span {$details_attrs}>
-			Details found: <b><span class="rnr-details_found_count">{$records_found}</span></b>
+			Groups found: <b><span class="rnr-details_found_count">{$records_found}</span></b>
 	</span>
 </div>
 {END details_block}
@@ -113,7 +113,7 @@
 
 {BEGIN recordspp_block}
 <div  class="style1 rnr-br rnr-b-recsperpage {$brickclass_recsperpage}">	<span id="recordspp_block{$id}" name="recordspp_block{$id}">
-			Records Per Page:&nbsp;{$recsPerPage}
+			Groups per page:&nbsp;{$grpsPerPage}
 	</span>	
 </div>
 {END recordspp_block}
@@ -234,71 +234,96 @@
 <style>
 	td.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary.pagesummary {background-color:#ffffbb;}
 	td.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary.globalsummary {background-color:#ffe0b0;}
+	.rnr-report {width: 100%;}
+	td {padding: 2px; 4px;}
+
+		td.group_1{background-color: #90EE90;}
+		td.nbgroup_1{background-color: #90EE90;}
+		td.header_1 {
+			background-color: #7ACA7A; 
+			font-size:120%;
+			padding: 2px 8px;
+			font-weight: bold;
+		}
+	td.blackshade {
+		font-size:140%;
+		padding: 4px 8px;
+	}
+	.summaryrow > * {
+		border:solid #808080 1px; 
+		border-left: none; 
+		border-right: none;
+	}
+	.grouptotalsrow + :not(.grouptotalsrow) > * {
+		border-top:solid #808080 1px; 
+	}
 
 </style>
 
-			{BEGIN grid_block}
-<TABLE class="rnr-c rnr-b-report report" CELLPADDING=0>
-<thead>
-<tr class="rnr-toprow table-header style1">
+	<div class="rnr-cw-grid rnr-s-2 asbuttons {$pageStyleName}">		
+						<div class="rnr-c rnr-cv rnr-c-grid">
+		<div class="rnr-brickcontents style1 rnr-b-report">		
+			<table class="rnr-report" cellspacing=0 cellpadding=0 border=0>
+			
+			
+			{BEGIN grid_row}
+			<!-------------------------------------  group headers ----------------------------------------->	
+			{BEGIN Name_newgroup}
+								<tr class="group-headers">
+					<td class="blackshade">{$label Collection Name}</td>
+										<td class="blackshade">{$label Collection PaymentDate}</td>
+					<td class="blackshade">{$label Collection Fees}</td>
+					<td class="blackshade">{$label Collection FirstName}</td>
+					<td class="blackshade">{$label Collection LastName}</td>
+					<td class="blackshade">{$label Collection Course}</td>
+				</tr>
+				<tr class="group-spliter-1" {$rowattrs}>
+																				<td colspan=6 class=header_1>
+								<font>
+									{$Name_grval}
+								</font>
+							</td>
+				</tr>
+			{END Name_newgroup}
+						<!-------------------------------------  group summary ----------------------------------------->
+						{BEGIN Name_endgroup}
+				<tr class="summaryrow" >
+										<td  class="group_1" colspan=6 >
+				Summary for {$label Collection Name} {$Name_grval}
+					- <span class="summary-1" data-type="summary" data-value="{$groupName_total_cnt}">{$groupName_total_cnt}</span> records total</td>
+				</tr>
+						<!--  Sum -->
+				<tr class="grouptotalsrow" >
+										<td class=group_1 >Sum</td>
+										<td class=group_1>&nbsp;</td>
+										<td class=group_1><span class="summary-1" data-type="sum" data-value="{$groupName_totalFees_sum}" data-field="Fees">{$groupName_totalFees_sum}</span></td>
+										<td class=group_1>&nbsp;</td>
+										<td class=group_1>&nbsp;</td>
+										<td class=group_1>&nbsp;</td>
+				</tr>	
+												{END Name_endgroup}
+			{END grid_row}
 
-<th>{$label Collection PaymentDate}</th>
-<th>{$label Collection Name}</th>
-<th>{$label Collection Fees}</th>
-<th>{$label Collection FirstName}</th>
-<th>{$label Collection LastName}</th>
-<th>{$label Collection Course}</th>
-<th class="rnr-edge"></th>
-</tr>
-</thead>
-<tbody>
-{BEGIN grid_row}
-{END grid_row}
-<tr class="rnr-toprow summary-header style1">
-<td>{$label Collection PaymentDate}</td>
-<td>{$label Collection Name}</td>
-<td>{$label Collection Fees}</td>
-<td>{$label Collection FirstName}</td>
-<td>{$label Collection LastName}</td>
-<td>{$label Collection Course}</td>
-<td class="rnr-edge"></td>
-</tr>
-<!--------------------------------------global summary-------------------------------------------->
-<tr class="rnr-row summary-global style1">
-	<td class="globalsummary rnr-edge" colspan=6>Global summary 
-	 {$global_total_cnt} - records total</td>
-</tr>
-<!--  Sum -->
-<tr class="rnr-row style1">
-		  
-	<td class="globalsummary 0">
-			Sum&nbsp;
-			&nbsp;
-	</td>
-		  
-	<td class="globalsummary 0">
-					&nbsp;
-	</td>
-		  
-	<td class="globalsummary 0">
-					{$global_totalFees_sum}
-	</td>
-		  
-	<td class="globalsummary 0">
-					&nbsp;
-	</td>
-		  
-	<td class="globalsummary 0">
-					&nbsp;
-	</td>
-		  
-	<td class="globalsummary rnr-edge">
-					&nbsp;
-	</td>
-</tr>	
-</tbody>
-</table>
-{END grid_block}
+											<!--------------------------------------global summary-------------------------------------------->
+				<tr class="summaryrow summary-global">
+					
+										<td class=globalsummary colspan=6>Global summary 
+					 {$global_total_cnt} - records total</td>
+				</tr>
+								<!--  Sum -->
+				<tr class="summary-global">
+											<td class=globalsummary>Sum</td>
+											<td class=globalsummary>&nbsp;</td>
+											<td class=globalsummary>{$global_totalFees_sum}</td>
+											<td class=globalsummary>&nbsp;</td>
+											<td class=globalsummary>&nbsp;</td>
+											<td class=globalsummary>&nbsp;</td>
+				</tr>	
+															</table>
+		</div>
+	</div>
+
+</div>
 
 
 

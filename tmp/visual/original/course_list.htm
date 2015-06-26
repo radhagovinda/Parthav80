@@ -378,16 +378,7 @@
 
 																		{BEGIN course_dtable_column}
 									<td class="rnr-nowrap" {$rowstyle} {$recordattrs}>
-									{BEGIN course_fee_dtable_link}
-									<span>
-									<a {$course_fee_dtablelink_attrs}>
-										Course Fee
-																				<span {$course_fee_childnumber_attr} dir="ltr">{BEGIN course_fee_childcount}({$course_fee_childnumber}){END course_fee_childcount}</span>
-									</a>
-																		&nbsp;
-									</span>
-									{END course_fee_dtable_link}
-																											{BEGIN batch_dtable_link}
+									{BEGIN batch_dtable_link}
 									<span>
 									<a {$batch_dtablelink_attrs}>
 										Batch
@@ -405,6 +396,15 @@
 																		&nbsp;
 									</span>
 									{END vw_student_course_batch_dtable_link}
+																											{BEGIN course_fee_dtable_link}
+									<span>
+									<a {$course_fee_dtablelink_attrs}>
+										Course Fee
+																				<span {$course_fee_childnumber_attr} dir="ltr">{BEGIN course_fee_childcount}({$course_fee_childnumber}){END course_fee_childcount}</span>
+									</a>
+																		&nbsp;
+									</span>
+									{END course_fee_dtable_link}
 																		</td>
 									{END course_dtable_column}
 
