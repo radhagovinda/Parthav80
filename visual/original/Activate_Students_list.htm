@@ -177,12 +177,7 @@
 <a class="rnr-button {$withSelectedClass}" href="#" id="selectButtonsToggler{$id}">With selected...</a>
 <ul class="rnr-list" id="selectButtonsGroup{$id}">
 
-		{BEGIN editselected_link}
-<li>
-		<a href="#" class="rnr-button link" {$editselectedlink_attrs} {$editselectedlink_span}>Edit</a>
-</li>
-	{END editselected_link}
-
+	
 		{BEGIN deleteselected_link}
 <li>
 		<a href="#" class="rnr-button link" {$deleteselectedlink_attrs} {$deleteselectedlink_span}>Delete</a>
@@ -198,13 +193,7 @@
 	</ul>
 </span>
 {END widhtSelected}
-		{BEGIN saveall_link}
-		<a href="#" class="rnr-button" {$savealllink_attrs} {$savealllink_span}>Save all</a>
-	{END saveall_link}
-	{BEGIN cancelall_link}
-		<a href="#" class="rnr-button" {$cancelalllink_attrs} {$cancelalllink_span}>Cancel</a>
-	{END cancelall_link}
-</div>
+	</div>
 {END record_controls_block}
 
 
@@ -358,12 +347,7 @@
 									{BEGIN listIcons_column}
 									<td class="rnr-cc rnr-bc rnr-icons" iEditCont="all" {$rowstyle} {$recordattrs}>
 									
-																		{BEGIN inlineedit_column}
-									{BEGIN inlineedit_link}
-																			<a class="rnr-button-img" {$inlineeditlink_attrs} data-icon="inlineedit" title="Inline Edit"></a>
-									{END inlineedit_link}
-									{END inlineedit_column}
-
+									
 									
 																		{BEGIN view_column}
 									{BEGIN view_link}
